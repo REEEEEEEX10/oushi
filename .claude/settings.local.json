@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm install *)",
+      "PowerShell(Start-Process \"http://localhost:3000\"; node server.js)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(node server.js)",
+      "PowerShell(Start-Process \"http://localhost:3000\")",
+      "PowerShell(git config *)",
+      "PowerShell(git init *)",
+      "PowerShell(git add *)",
+      "PowerShell(git commit *)",
+      "PowerShell(git remote *)",
+      "PowerShell(git branch *)",
+      "PowerShell(git push *)",
+      "PowerShell(git *)"
+    ]
+  }
+}

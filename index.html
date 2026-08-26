@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate College Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎓</span>
+                <span class="logo-text">Ultimate College Finder</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="cta-btn">Get Started</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="grid-overlay"></div>
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                AI-Powered Research Tool
+            </div>
+
+            <h1 class="hero-title">
+                Your Ultimate
+                <span class="highlight">College Research</span>
+                Partner
+            </h1>
+
+            <p class="hero-subtitle">
+                From rankings to real student reviews, we aggregate every bit of information
+                about your dream college in seconds. Powered by real-time web intelligence.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input
+                        type="text"
+                        class="search-input"
+                        id="collegeSearch"
+                        placeholder="Enter college name (e.g., Harvard, MIT, Stanford...)"
+                        autocomplete="off"
+                    >
+                    <button class="search-btn" id="searchBtn">
+                        <span class="btn-text">Search</span>
+                        <svg class="btn-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="suggestions"></div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Colleges Indexed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Real Reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Verified Data</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="loading-text">Searching the web for <span id="searchingCollege"></span></p>
+            <div class="loading-steps">
+                <div class="step active" id="step1">
+                    <span class="step-icon">📊</span>
+                    <span class="step-text">Gathering basic information...</span>
+                </div>
+                <div class="step" id="step2">
+                    <span class="step-icon">💬</span>
+                    <span class="step-text">Finding student reviews...</span>
+                </div>
+                <div class="step" id="step3">
+                    <span class="step-icon">🖼️</span>
+                    <span class="step-text">Loading campus images...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+        <button class="back-btn" id="backBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Search
+        </button>
+
+        <div class="results-container">
+            <!-- College Header -->
+            <div class="college-header" id="collegeHeader">
+                <div class="college-image-wrapper">
+                    <img src="" alt="" class="college-image" id="collegeImage">
+                    <div class="image-overlay"></div>
+                </div>
+                <div class="college-title-section">
+                    <h2 class="college-name" id="collegeName"></h2>
+                    <p class="college-location" id="collegeLocation"></p>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats" id="quickStats"></div>
+
+            <!-- Detailed Information -->
+            <div class="info-grid">
+                <!-- Courses -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">📚</span>
+                            Courses Offered
+                        </h3>
+                    </div>
+                    <div class="card-content" id="coursesContent"></div>
+                </div>
+
+                <!-- Fee Structure -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">💰</span>
+                            Fee Structure
+                        </h3>
+                    </div>
+                    <div class="card-content" id="feeContent"></div>
+                </div>
+
+                <!-- Campus -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🏛️</span>
+                            Campus Information
+                        </h3>
+                    </div>
+                    <div class="card-content" id="campusContent"></div>
+                </div>
+
+                <!-- Academic Excellence -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <span class="card-icon">🎯</span>
+                            Academic Excellence
+                        </h3>
+                    </div>
+                    <div class="card-content" id="academicContent"></div>
+                </div>
+            </div>
+
+            <!-- Student Reviews -->
+            <div class="reviews-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <span class="section-icon">💬</span>
+                        What Students Say
+                    </h3>
+                    <p class="section-subtitle">Real reviews from real students across the web</p>
+                </div>
+                <div class="reviews-grid" id="reviewsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
