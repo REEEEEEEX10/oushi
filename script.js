@@ -175,29 +175,13 @@ function showLoadingScreen(collegeName) {
     });
 }
 
-// Fetch College Data from real APIs
+// Fetch College Data (using mock data - no backend needed)
 async function fetchCollegeData(collegeName) {
-    try {
-        const response = await fetch('/api/college-search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ collegeName })
-        });
+    // Simulate network delay for realistic loading experience
+    await new Promise(resolve => setTimeout(resolve, 1500));
 
-        if (!response.ok) {
-            throw new Error('Failed to fetch college data');
-        }
-
-        const data = await response.json();
-        return data;
-
-    } catch (error) {
-        console.error('API Error:', error);
-        // Return more realistic mock data if API fails
-        return generateEnhancedMockData(collegeName);
-    }
+    // Return enhanced mock data
+    return generateEnhancedMockData(collegeName);
 }
 
 // Enhanced Mock Data Generator
